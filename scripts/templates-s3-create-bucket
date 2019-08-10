@@ -1,0 +1,14 @@
+#!/bin/sh
+{ set +x; } 2>/dev/null
+
+usage() {
+    echo "usage: $(basename $0) bucket"
+    [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; exit
+}
+
+[[ $1 == "-h" ]] || [[ $1 == "--help" ]] && usage "$@"
+
+[[ $# != 1 ]] && usage
+
+uri=s3://"$1"
+aws s3 mb "$uri"

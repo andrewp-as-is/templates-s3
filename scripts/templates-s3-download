@@ -1,0 +1,22 @@
+#!/bin/sh
+{ set +x; } 2>/dev/null
+
+usage() {
+    echo "usage: $(basename $0)"
+    [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; exit
+}
+
+[[ $1 == "-h" ]] || [[ $1 == "--help" ]] && usage "$@"
+
+[[ $# != 0 ]] && usage
+
+[[ -z "$AWS_S3_TEMPLATES_BUCKET" ]] && echo "ERROR: AWS_S3_TEMPLATES_BUCKET unknown" 1>&2 && exit 1
+[[ -z "$AWS_S3_TEMPLATES_ACCESS_KEY_ID" ]] && echo "ERROR: AWS_S3_TEMPLATES_ACCESS_KEY_ID unknown" 1>&2 && exit 1
+[[ -z "$AWS_S3_TEMPLATES_SECRET_ACCESS_KEY" ]] && echo "ERROR: AWS_S3_TEMPLATES_SECRET_ACCESS_KEY unknown" 1>&2 && exit 1
+
+export AWS_ACCESS_KEY_ID="$AWS_S3_TEMPLATES_ACCESS_KEY_ID"
+export AWS_SECRET_ACCESS_KEY="$AWS_S3_TEMPLATES_SECRET_ACCESS_KEY"
+
+path="$PWD"/webpack
+uri=s3://"$AWS_S3_TEMPLATES_BUCKET"
+aws s3 sync "$uri" "$path"

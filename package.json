@@ -1,0 +1,19 @@
+{
+  "name": "templates-s3",
+  "version": "2019.8.9",
+  "description": "webpack S3 scripts",
+  "keywords": [
+    "webpack",
+    "s3"
+  ],
+  "homepage": "https://github.com/andrewp-as-is/templates-s3",
+  "license": "Unlicense",
+  "bin": {
+    "templates-s3": "./scripts/templates-s3",
+    "templates-s3-create-bucket": "./scripts/templates-s3-create-bucket",
+    "templates-s3-create-full-access-env": "./scripts/templates-s3-create-full-access-env",
+    "templates-s3-create-read-only-env": "./scripts/templates-s3-create-read-only-env",
+    "templates-s3-download": "./scripts/templates-s3-download",
+    "templates-s3-upload": "./scripts/templates-s3-upload"
+  }
+}

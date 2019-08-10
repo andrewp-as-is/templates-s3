@@ -1,0 +1,26 @@
+#!/bin/sh
+{ set +x; } 2>/dev/null
+
+usage() {
+    cat <<EOF 1>&2
+usage: $(basename $0) command [args]
+
+Available commands:
+    create-bucket            create S3 bucket
+
+    create-full-access-env   create user with full-access and print env
+    create-read-only-env     create user with read-only and print env
+
+    download                 download templates/ from S3
+    upload                   upload templates/ to S3
+
+run \`$(basename $0) COMMAND --help\` for more infos
+EOF
+    [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; exit
+}
+
+[[ $1 == "-h" ]] || [[ $1 == "--help" ]] && usage "$@"
+
+[[ $# == 0 ]] && usage "$@"
+
+"${BASH_SOURCE[0]%/*}"/"${BASH_SOURCE[0]##*/}"-"$1" "${@:2}"
