@@ -17,6 +17,6 @@ usage() {
 export AWS_ACCESS_KEY_ID="$AWS_S3_TEMPLATES_ACCESS_KEY_ID"
 export AWS_SECRET_ACCESS_KEY="$AWS_S3_TEMPLATES_SECRET_ACCESS_KEY"
 
-path="$PWD"/webpack
+path="$PWD"/templates
 uri=s3://"$AWS_S3_TEMPLATES_BUCKET"
 aws s3 sync "$uri" "$path"

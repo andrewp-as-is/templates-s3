@@ -10,14 +10,14 @@ usage() {
 
 [[ $# != 1 ]] && usage
 
-[[ -z $2 ]] && set -- "$1" S3-"$1"-ReadOnly
+[[ -z $2 ]] && set -- "$1" S3-"$1"-FullAccess
 [[ -z "$1" ]] && echo "ERROR: bucket name is empty" 1>&2 && exit 1
 # [[ -z "$2" ]] && echo "ERROR: user name is empty" 1>&2 && exit 1
 
 IFS=
 BUCKET_NAME="$1"
 USER_NAME="$2"
-POLICY_NAME="$1"-ReadOnly
+POLICY_NAME="$1"-FullAccess
 POLICY_FILE="$(mktemp)" || exit
 POLICY_DOCUMENT="file://$POLICY_FILE"
 
@@ -50,7 +50,7 @@ cat <<EOF > "$POLICY_FILE" || exit
 }
 EOF
 
-aws iam list-users | grep -q "\"$USER_NAME\"" || aws iam create-user --user-name "$USER_NAME" || exit
+aws iam list-users | grep -q "\"$USER_NAME\"" || aws iam create-user --user-name "$USER_NAME" 1> /dev/null || exit
 # IAM -> Users -> User -> Permissions
 aws iam put-user-policy --user-name "$USER_NAME" --policy-name "$POLICY_NAME" --policy-document "$POLICY_DOCUMENT" || exit
 # IAM -> Users -> User -> Security credentials

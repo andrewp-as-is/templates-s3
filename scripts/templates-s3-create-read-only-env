@@ -46,7 +46,7 @@ cat <<EOF > "$POLICY_FILE" || exit
 }
 EOF
 
-aws iam list-users | grep -q "\"$USER_NAME\"" || aws iam create-user --user-name "$USER_NAME" || exit
+aws iam list-users | grep -q "\"$USER_NAME\"" || aws iam create-user --user-name "$USER_NAME" 1> /dev/null || exit
 # IAM -> Users -> User -> Permissions
 aws iam put-user-policy --user-name "$USER_NAME" --policy-name "$POLICY_NAME" --policy-document "$POLICY_DOCUMENT" || exit
 # IAM -> Users -> User -> Security credentials
