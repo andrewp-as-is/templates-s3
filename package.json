@@ -1,9 +1,9 @@
 {
   "name": "templates-s3",
   "version": "2019.8.11",
-  "description": "webpack S3 scripts",
+  "description": "store templates on S3",
   "keywords": [
-    "webpack",
+    "templates",
     "s3"
   ],
   "homepage": "https://github.com/andrewp-as-is/templates-s3",
