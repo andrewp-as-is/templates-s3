@@ -1,19 +1,21 @@
 <!--
-https://pypi.org/project/readme-generator/
-https://pypi.org/project/python-readme-generator/
+https://readme42.com
 -->
+
+
 
 [![](https://img.shields.io/badge/OS-Unix-blue.svg?longCache=True)]()
 [![](https://img.shields.io/pypi/v/templates-s3.svg?maxAge=3600)](https://pypi.org/project/templates-s3/)
-[![](https://img.shields.io/npm/v/templates-s3.svg?maxAge=3600)](https://www.npmjs.com/package/templates-s3)
-[![Travis](https://api.travis-ci.org/andrewp-as-is/templates-s3.svg?branch=master)](https://travis-ci.org/andrewp-as-is/templates-s3/)
+[![](https://img.shields.io/npm/v/templates-s3.svg?maxAge=3600)](https://www.npmjs.com/package/templates-s3)[![](https://img.shields.io/badge/License-Unlicense-blue.svg?longCache=True)](https://unlicense.org/)
+[![](https://github.com/andrewp-as-is/templates-s3/workflows/tests42/badge.svg)](https://github.com/andrewp-as-is/templates-s3/actions)
 
-#### Installation
-```bash
-$ [sudo] npm i -g templates-s3
-```
+### Installation
 ```bash
 $ [sudo] pip install templates-s3
+```
+
+```bash
+$ [sudo] npm i -g templates-s3
 ```
 
 #### Pros
@@ -31,16 +33,6 @@ hard-coded environment variables names:
 +   `AWS_S3_TEMPLATES_USER`
 +   `AWS_S3_TEMPLATES_ACCESS_KEY_ID`
 +   `AWS_S3_TEMPLATES_SECRET_ACCESS_KEY`
-
-#### Scripts usage
-command|`usage`
--|-
-`templates-s3` |`usage: templates-s3 command [args]`
-`templates-s3-create-bucket` |`usage: templates-s3-create-bucket bucket`
-`templates-s3-create-full-access-env` |`usage: templates-s3-create-full-access-env bucket`
-`templates-s3-create-read-only-env` |`usage: templates-s3-create-read-only-env bucket`
-`templates-s3-download` |`usage: templates-s3-download`
-`templates-s3-upload` |`usage: templates-s3-upload`
 
 #### Examples
 `Makefile`, create env
@@ -81,5 +73,5 @@ templates-s3-download
 ```
 
 <p align="center">
-    <a href="https://pypi.org/project/python-readme-generator/">python-readme-generator</a>
+    <a href="https://readme42.com/">readme42.com</a>
 </p>
